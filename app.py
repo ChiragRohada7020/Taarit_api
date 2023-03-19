@@ -21,59 +21,96 @@ class create_dict(dict):
         self[key] = value 
         
 
-@app.route("/users",methods = ['POST', 'GET'])
-def Users():
-    mycol = mydb['Users']
+
+def Api(api):
+    mycol = mydb['Api']
     
-    mydict = create_dict()
-    i = 1
-    for y in mycol.find():
-        mydict.add(i, ({"name":y['name'],"email":y['email']}))
-        i = i+1
+    api1=mycol.find({"api_key":api})
+    print(api1)
+
     
-    return jsonify(mydict)
+    api3=0
+    for i in api1:
+        api3=i
 
-@app.route("/accident",methods = ['POST', 'GET'])
-def Accident():
-    mycol = mydb['accident']
+    return api3
+
+
+@app.route("/users/<api>",methods = ['POST', 'GET'])
+def Users(api):
+
     
-    mydict = create_dict()
-    i = 1
-    for y in mycol.find():
-        mydict.add(i, ({"Device_id":y['iot_id'],"Location":y['location'],"Vehicle_no":y['vehicle_no'],"Email":y['email'],"Critical":y['critical'],"Postcode":y['postcode'],"Date":y['date'],"Staff_email":y['staff_email'],"Staff_name":y['staff_name'],"Rescued":y['user_rescued']}))
-        i = i+1
+
+    if (Api(api)):
+
+        mycol = mydb['Users']
     
-    return jsonify(mydict)
-
-
-
-
-
-
-@app.route("/hospital_connect",methods = ['POST', 'GET'])
-def Hospital_connect():
-    mycol = mydb['HospitalData']
+        mydict = create_dict()
+        i = 1
+        for y in mycol.find():
+            mydict.add(i, ({"name":y['name'],"email":y['email']}))
+            i = i+1
     
-    mydict = create_dict()
-    i = 1
-    for y in mycol.find():
-        mydict.add(i, ({"Name":y['name'],"City":y['city'],"Location":y['location'],"Zipcode":y['zipcode']}))
-        i = i+1
+        return jsonify(mydict)
+    else:
+        return "wrong api_key"
+
+@app.route("/accident/<api>",methods = ['POST', 'GET'])
+def Accident(api):
+
+    if (Api(api)):
+            mycol = mydb['accident']
     
-    return jsonify(mydict)
+            mydict = create_dict()
+            i = 1
+            for y in mycol.find():
+                mydict.add(i, ({"Device_id":y['iot_id'],"Location":y['location'],"Vehicle_no":y['vehicle_no'],"Email":y['email'],"Critical":y['critical'],"Postcode":y['postcode'],"Date":y['date'],"Staff_email":y['staff_email'],"Staff_name":y['staff_name'],"Rescued":y['user_rescued']}))
+                i = i+1
+    
+            return jsonify(mydict)
+    else:
+        return "wrong api_key"
 
 
-@app.route("/Staff",methods = ['POST', 'GET'])
-def Staff():
-    mycol = mydb['Staff']
+
+
+
+
+
+@app.route("/hospital_connect/<api>",methods = ['POST', 'GET'])
+def Hospital_connect(api):
+    if (Api(api)):
+        mycol = mydb['HospitalData']
     
-    mydict = create_dict()
-    i = 1
-    for y in mycol.find():
-        mydict.add(i, ({"Email":y['email'],"Name":y['name']}))
-        i = i+1
+        mydict = create_dict()
+        i = 1
+        for y in mycol.find():
+            mydict.add(i, ({"Name":y['name'],"City":y['city'],"Location":y['location'],"Zipcode":y['zipcode']}))
+            i = i+1
     
-    return jsonify(mydict)
+        return jsonify(mydict)
+    else:
+        return "wrong api_key"
+
+    
+
+
+@app.route("/Staff/<api>",methods = ['POST', 'GET'])
+def Staff(api):
+    if (Api(api)):
+            mycol = mydb['Staff']
+    
+            mydict = create_dict()
+            i = 1
+            for y in mycol.find():
+                mydict.add(i, ({"Email":y['email'],"Name":y['name']}))
+                i = i+1
+    
+            return jsonify(mydict)
+    else:
+        return "wrong api_key"
+    
+
 
 
 

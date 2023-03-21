@@ -52,11 +52,11 @@ def ambulance_register(api):
             password = generate_password_hash(user_password)
             mycol = mydb["Staff"]
             mycol.insert_one({"name":name,"email":email,"mobile":mobile,"address":address,"password":password})
-            return "Success", 201
+            return {"Response":"OK"}
         else:
-            return "Error",400
+            return {"Response":"Error"}
     except:
-        return "error",400
+        return {"Response":"Error"}
     
 @ambulance.route("/ambulance_login/<api>",methods = ['POST', 'GET'])
 def ambulance_login(api):
@@ -75,11 +75,11 @@ def ambulance_login(api):
             if (check_password_hash(user['password'], password)):
                 session['ambulance_login']=email
             else:
-                return "Wrong Credentials",400
+                return {"Response":"Wrong Api"}
 
-            return "Success", 201
+            return {"Response":"OK"}
     except:
-        return "error",400
+        return {"Response":"Error"}
 
 
 @ambulance.route("/ambulance_accident/<lat>/<log>/<api>",methods = ['POST', 'GET'])
@@ -111,9 +111,9 @@ def ambulance_accident(lat,log,api):
     
             return jsonify(mydict)
         else:
-            return "wrong api",400
+            return {"Response":"Wrong api"}
     except:
-        return "error",400
+        return {"Response":"Error"}
 
     
 
@@ -127,11 +127,11 @@ def ambulance_acept(api):
             driver_name=request.json["name"]
             mycol = mydb["accident"]
             mycol.update_one({'iot_id':iot_id},{"$set":{'staff_email':driver_email,'staff_name':driver_name}})
-            return "ok"
+            return {"Response":"OK"}
         else:
-            return "wrong api",400
+            return {"Response":"Wrong api"}
     except:
-        return "error",400
+        return {"Response":"Error"}
 
 
 

@@ -973,7 +973,12 @@ def Register():
             res = ''.join(random.choices(string.ascii_uppercase +
                              string.digits, k=10))
             mycol = mydb["Api"]
-            
+            x=mycol.find_one({"email":email})
+            if x:
+                flash("Aleardy Registered")
+                return  redirect(url_for('Login'))
+
+
             mycol.insert_one({"name":name,"email":email,"password":password,"api_key":res})
 
             

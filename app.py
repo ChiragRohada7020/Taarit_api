@@ -1,7 +1,12 @@
 from flask import Flask,jsonify,request
-from flask import Flask, redirect, url_for, render_template, request, flash
+from flask import Flask, redirect, url_for, render_template, request, flash,session
 import pymongo
 from flask_mail import Mail, Message
+from Home.Ambulance.ambulance import ambulance
+from flask_bcrypt import Bcrypt
+import os
+from werkzeug.security import check_password_hash, generate_password_hash
+
 
 
 
@@ -16,10 +21,18 @@ import random
 
 
 
-app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
+app.secret_key=os.urandom(24)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
+
+
+bcrypt = Bcrypt(app)
+
+
+
+app.register_blueprint(ambulance)
+
 
 # class create_dict(dict): 
   
@@ -877,8 +890,77 @@ def mailing(email,res):
 
 @app.route("/",methods = ['POST', 'GET'])
 def Home():
-    return render_template('index.html')
+    try:
+        if 'user_login' in session:
+            return render_template('index.html',login=1)
+        else:
+            return render_template('index.html',login=0)
+    except:
+        return "error"
+            
+        
+    
 
+@app.route("/docs",methods = ['POST', 'GET'])
+def Docs():
+    try:
+        if 'user_login' in session:
+          mycol = mydb['Api']
+          print(session["user_login"])
+          data=mycol.find_one({"email":session['user_login']})
+          
+          return render_template('doc.html',login=1,data=data["api_key"])
+        else:
+            return render_template('doc.html')
+    except:
+        return 'error'
+    
+    
+
+@app.route("/register",methods = ['POST', 'GET'])
+def Register_user():
+    return render_template('Regsiter_user.html')
+
+
+
+
+
+
+@app.route("/logout",methods = ['POST', 'GET'])
+def Logout():
+    session.pop('user_login')
+    return redirect(url_for('Home'))
+
+@app.route("/login",methods = ['POST', 'GET'])
+def Login():
+    try:
+        if 'user_login' in session:
+            return  redirect(url_for('Home'))
+            
+        if request.method == 'POST':
+          email=request.form["email"]
+          password=request.form["password"]
+          mycol = mydb['Api']
+          user=mycol.find_one({"email":email})
+          
+          if(check_password_hash(user['password'], password)):
+              session['user_login']=email
+              return redirect(url_for('Home'))
+          else:
+              return "wrong credentials"
+        else:
+            return render_template('login.html')
+            
+          
+          
+    except:
+        return "error"
+              
+          
+        
+    
+    
+    
 
 @app.route("/register_api",methods = ['POST', 'GET'])
 def Register():
@@ -886,20 +968,24 @@ def Register():
         if request.method == 'POST':
             name=request.form['Name']
             email=request.form['email']
-            number=request.form['number']
+            password=request.form['password']
+            password = generate_password_hash(password)
             res = ''.join(random.choices(string.ascii_uppercase +
                              string.digits, k=10))
             mycol = mydb["Api"]
-            mycol.insert_one({"api_key":res})
+            
+            mycol.insert_one({"name":name,"email":email,"password":password,"api_key":res})
+
             
             mailing(email,res)
             flash("Successfully Registered")
+            
             
     except Exception as e:
         print(e)
         flash("Register Failed")
     
-    return  redirect(url_for('Home'))
+    return  redirect(url_for('Login'))
 
 
 @app.route("/users/<api>",methods = ['POST', 'GET'])

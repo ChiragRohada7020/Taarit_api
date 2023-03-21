@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Taarit Documentation</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='docs_css/scribbler-global.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='docs_css/scribbler-doc.css')}}"
+    />
+
+    <link rel="author" href="humans.txt" />
+  </head>
+  <body>
+    <div class="doc__bg"></div>
+    <nav class="header">
+      <h1 class="logo">Taarit <span class="logo__thin">Doc</span></h1>
+      <ul class="menu">
+        <div class="menu__item toggle"><span></span></div>
+        <li class="menu__item">
+          <a href="{{ url_for('Register_user') }}" class="link link--dark"
+            ><i class="fa fa-key" aria-hidden="true"></i> API</a
+          >
+        </li>
+        <li class="menu__item">
+          <a href="{{ url_for('Home') }}" class="link link--dark"
+            ><i class="fa fa-home"></i> Home</a
+          >
+        </li>
+        <li class="menu__item">
+          {% if login %}
+          <a href="{{ url_for('Logout') }}" class="link link--dark"
+            ><i class="fa fa-sign-in" aria-hidden="true"></i> Logout</a
+          >
+          {% else %}
+          <a href="{{ url_for('Login') }}" class="link link--dark"
+            ><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a
+          >
+
+          {% endif %}
+        </li>
+      </ul>
+    </nav>
+    <div class="wrapper">
+      <aside class="doc__nav">
+        <ul>
+          <li class="js-btn selected">Get Started</li>
+          <li class="js-btn">Configuration</li>
+          <!-- <li class="js-btn">Keybindings</li>
+          <li class="js-btn">Issues</li> -->
+        </ul>
+      </aside>
+      <article class="doc__content">
+        <section class="js-section">
+          <h3 class="section__title">Get Started</h3>
+          <p>Learn how to configure Taarit api</p>
+          <h3 class="section__title">Your Api Keys</h3>
+          <div class="code__block code__block--notabs">
+            <pre class="code code--block">
+              <code>
+                {% if login %}
+               {{data["api_key"]}}
+               {% else %}
+               No api key
+               {% endif %}
+              </code>
+            </pre>
+          </div>
+        </section>
+        <section class="js-section">
+          <h3 class="section__title">Configuration</h3>
+          <p>
+            Learn how to configure settings for Scribbler, such as your syntax
+            highlighting preference and the default saving folder location.
+          </p>
+          <table id="customers">
+            <tr>
+              <th>Data</th>
+              <th>Value</th>
+            </tr>
+            <tr>
+              <td>Users Data</td>
+              <td>https://taarit-app1.onrender.com/users/{api_key}</td>
+            </tr>
+            <tr>
+              <td>Accident Data</td>
+              <td>https://taarit-app1.onrender.com/accident/{api_key}</td>
+            </tr>
+            <tr>
+              <td>Hospital Data</td>
+              <td>
+                https://taarit-app1.onrender.com/hospital_connect/{api_key}
+              </td>
+            </tr>
+          </table>
+          <p>
+            We intent to provide medical help to the victim within golden hour
+            of the trauma, to increase the chances of survival and to reduce the
+            risk of severity . We hope that Taarit will not let anyone cease to
+            exit because of untimely medical assistance.
+          </p>
+          <hr />
+        </section>
+        <!-- <section class="js-section">
+          <h3 class="section__title">Keybindings</h3>
+          <p>
+            Lorem ipsum dolor sit amet, scripta tibique indoctum sit ei, mel
+            inani aeterno ad. Facer oratio ex per. At eam movet verear, in sea
+            brute patrioque disputando, usu nonumes torquatos an. Ex his
+            quaerendum intellegebat, ut vel homero accusam. Eum at debet
+            tibique, in vocibus temporibus adversarium sed. Porro verear eu vix,
+            ne usu tation vituperata.
+          </p>
+          <p>
+            Malis percipitur an pro. Pro aperiam persequeris at, at sonet
+            sensibus mei, id mea postulant definiebas concludaturque. Id qui
+            malis abhorreant, mazim melius quo et. At eam altera dolorum, case
+            dicant lobortis ius te, ad vel affert oportere reprehendunt. Quo no
+            verterem deseruisse, mea brute postea te, ne per tacimates suavitate
+            vituperatoribus.
+          </p>
+          <p>
+            Malis percipitur an pro. Pro aperiam persequeris at, at sonet
+            sensibus mei, id mea postulant definiebas concludaturque. Id qui
+            malis abhorreant, mazim melius quo et. At eam altera dolorum, case
+            dicant lobortis ius te, ad vel affert oportere reprehendunt. Quo no
+            verterem deseruisse, mea brute postea te, ne per tacimates suavitate
+            vituperatoribus.
+          </p>
+          <hr />
+        </section>
+        <section class="js-section">
+          <h3 class="section__title">Issues</h3>
+          <p>
+            Lorem ipsum dolor sit amet, scripta tibique indoctum sit ei, mel
+            inani aeterno ad. Facer oratio ex per. At eam movet verear, in sea
+            brute patrioque disputando, usu nonumes torquatos an. Ex his
+            quaerendum intellegebat, ut vel homero accusam. Eum at debet
+            tibique, in vocibus temporibus adversarium sed. Porro verear eu vix,
+            ne usu tation vituperata.
+          </p>
+          <p>
+            Malis percipitur an pro. Pro aperiam persequeris at, at sonet
+            sensibus mei, id mea postulant definiebas concludaturque. Id qui
+            malis abhorreant, mazim melius quo et. At eam altera dolorum, case
+            dicant lobortis ius te, ad vel affert oportere reprehendunt. Quo no
+            verterem deseruisse, mea brute postea te, ne per tacimates suavitate
+            vituperatoribus.
+          </p>
+        </section> -->
+      </article>
+    </div>
+
+    <footer class="footer">
+      Taarit Api Is Free To Use
+      <a
+        href="https://tympanus.net/codrops/"
+        target="_blank"
+        class="link link--light"
+        >*</a
+      >
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+    <script src="{{url_for('static',filename='docs_css/scribbler.js')}}"></script>
+  </body>
+</html>

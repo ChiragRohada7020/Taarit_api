@@ -1,127 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>API</title>
-    <link href="{{url_for('static',filename='output.css')}}" rel="stylesheet" />
+    <meta charset="utf-8" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Scribbler - a codding landing page template for codrops</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='docs_css/scribbler-global.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='docs_css/scribbler-landing.css')}}"
+    />
+    <link rel="author" href="humans.txt" />
   </head>
   <body>
-    <section class="bg-gray-50 dark:bg-gray-900">
-      <div
-        class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0"
-      >
-        <a
-          href="#"
-          class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
+    <nav>
+      <div class="logo"></div>
+      <ul class="menu">
+        <div class="menu__item toggle"><span></span></div>
+        <li class="menu__item">
+          <a href="{{ url_for('Docs') }}" class="link link--dark"
+            ><i class="fa fa-book"></i> Documentation</a
+          >
+        </li>
+        <li class="menu__item">
+          <a  href="{{ url_for('Register_user') }}" class="link link--dark"
+            > <i class="fa fa-key" aria-hidden="true"></i>Api</a
+          >
+        </li>
+        <li class="menu__item">
+          {% if login %}
+          <a href="{{ url_for('Logout') }}" class="link link--dark"
+          ><i class="fa fa-sign-in" aria-hidden="true"></i>
+          Logout</a
         >
-          <img
-            class="w-16 h-16 mr-2"
-            src="https://www.elemental.co.za/cms/resources/uploads/blog/86/926f6aaba773.png"
-            alt="logo"
-          />
-        </a>
-        <div
-          class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700"
+        {% else %}
+        <a href="{{ url_for('Login') }}" class="link link--dark"
+          ><i class="fa fa-sign-in" aria-hidden="true"></i>
+          Login</a
         >
-          <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-            <h1
-              class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white"
-            >
-              Register For Api
-            </h1>
 
-            <form
-              class="space-y-4 md:space-y-6"
-              action="register_api"
-              method="post"
-            >
-              <div>
-                <label
-                  for="email"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                  >Your email</label
-                >
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="name@company.com"
-                  required=""
-                />
-              </div>
-              <div>
-                <label
-                  for="Name"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                  >Name</label
-                >
-                <input
-                  type="text"
-                  name="Name"
-                  id="Name"
-                  placeholder="Name"
-                  class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  required=""
-                />
-              </div>
-              <div>
-                <label
-                  for="Mobile_no"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                  >Mobile Number</label
-                >
-                <input
-                  type="number"
-                  name="number"
-                  id="Mobile_no"
-                  placeholder="Mobile Number"
-                  class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  required=""
-                />
-              </div>
-              <div class="flex items-start">
-                <div class="flex items-center h-5">
-                  <input
-                    id="terms"
-                    aria-describedby="terms"
-                    type="checkbox"
-                    class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
-                    required=""
-                  />
-                </div>
-                <div class="ml-3 text-sm">
-                  <label
-                    for="terms"
-                    class="font-light text-gray-500 dark:text-gray-300"
-                    >I accept the
-                    <a
-                      class="font-medium text-primary-600 hover:underline dark:text-primary-500"
-                      href="#"
-                      >Terms and Conditions</a
-                    ></label
-                  >
-                </div>
-              </div>
-              <button
-                type="submit"
-                class="w-full  text-black sm:text-white bg-primary-600 hover:bg-primary-400 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-              >
-                Register
-              </button>
-            </form>
-            <div>
-              <h1 class="text-green-500 duration-700 font-semibold">
-                {% with messages = get_flashed_messages() %} {% if messages %}
-                {% for message in messages %} {{ message }} {% endfor %} {%
-                endif %} {% endwith %}
-              </h1>
-            </div>
-          </div>
+    {% endif %}
+          
+        </li>
+      </ul>
+    </nav>
+    <div class="hero">
+      <h1 class="hero__title">Taarit</h1>
+      <p class="hero__description">Let me explain</p>
+    </div>
+    <div class="hero__terminal">
+      <pre>
+        <!-- Place your demo code here -->
+        <code class="shell-session demo">api ~ $ </code>
+      </pre>
+    </div>
+    <div class="wrapper">
+      <div class="installation">
+        <h3 class="section__title">How To Get Data</h3>
+        <div class="tab__container">
+          <pre class="nohighlight code">
+            <code class="tab__pane active mac"><span style="color: brown;">syntax</span> ~ $   https://taarit-app1.onrender.com/{<span style="color: darkred;">Data_You_Want</span>}/{<span style="color: darkred;">Your_Api_Key</span>}</code>
+            
+          </pre>
         </div>
       </div>
-    </section>
+      
+
+      <div class="callout">
+        <p>Read our documentation for advanced keybindings and customization</p>
+        <a href="{{ url_for('Docs') }}"class="button--primary">Documentation</a>
+      </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+    <script src="{{url_for('static',filename='docs_css/scribbler.js')}}"></script>
   </body>
 </html>

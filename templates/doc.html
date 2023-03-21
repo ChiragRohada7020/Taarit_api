@@ -81,11 +81,8 @@
           </div>
         </section>
         <section class="js-section">
-          <h3 class="section__title">Configuration</h3>
-          <p>
-            Learn how to configure settings for Scribbler, such as your syntax
-            highlighting preference and the default saving folder location.
-          </p>
+          <h3 class="section__title">Examples</h3>
+          <p>Learn how to configure api</p>
           <table id="customers">
             <tr>
               <th>Data</th>
@@ -113,7 +110,176 @@
             exit because of untimely medical assistance.
           </p>
           <hr />
+          <section class="js-section">
+            <h3 class="section__title">How to make an API call</h3>
+            <p>Post Data</p>
+            <h3 class="section__title">Driver Registration</h3>
+            <div class="code__block code__block--notabs">
+              <pre class="code code--block">
+                <code>
+                  <span style="color: brown;">syntax</span> ~$  https://taarit-app1.onrender.com/<span style="color: brown; font-family: cursive;font-size: small; ">ambulance_register</span>/<span style="color: brown;font-family: cursive;font-size: small;">{api}</span>
+                </code>
+              </pre>
+            </div>
+            <div class="code__block code__block--notabs">
+              <pre class="code code--block">
+                <code>
+                  <span style="color: brown;">Parametrs</span> ~$  <span style="color: brown; font-family: cursive; font-size: small;">Name , Email , Password , Address , Mobile</span>
+                </code>
+              </pre>
+            </div>
+            <div class="code__block code__block--notabs">
+              <pre class="code code--block">
+                <code>
+                  const data = {
+                    name: "Your_Name",
+                    mobile: "Mobile_Number",
+                    address: "Your_Address",
+                    email: "Your_Email",
+                    password: "Your_Password",
+                  };
+
+fetch("/ambulance_register", {
+  method: "POST", // or 'PUT'
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(data),
+})
+  .then((response) => response.json())
+  .then((data) => {
+    console.log("Success:", data);
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+  });
+                </code>
+              </pre>
+            </div>
+          </section>
         </section>
+        <section class="js-section">
+          
+         
+          <h3 class="section__title">Driver Login</h3>
+          <div class="code__block code__block--notabs">
+            <pre class="code code--block">
+              <code>
+                <span style="color: brown;">syntax</span> ~$  https://taarit-app1.onrender.com/<span style="color: brown; font-family: cursive;font-size: small; ">ambulance_login</span>/<span style="color: brown;font-family: cursive;font-size: small;">{api}</span>
+              </code>
+            </pre>
+          </div>
+          <div class="code__block code__block--notabs">
+            <pre class="code code--block">
+              <code>
+                <span style="color: brown;">Parametrs</span> ~$  <span style="color: brown; font-family: cursive; font-size: small;"> Email , Password</span>
+              </code>
+            </pre>
+          </div>
+          <div class="code__block code__block--notabs">
+            <pre class="code code--block">
+              <code>
+                const data = {
+                  email: "Your_Email",
+                  password: "Your_Password",
+                };
+
+fetch("/ambulance_login", {
+method: "POST", // or 'PUT'
+headers: {
+  "Content-Type": "application/json",
+},
+body: JSON.stringify(data),
+})
+.then((response) => response.json())
+.then((data) => {
+  console.log("Success:", data);
+})
+.catch((error) => {
+  console.error("Error:", error);
+});
+              </code>
+            </pre>
+          </div>
+        </section>
+        <section class="js-section">
+          
+         
+          <h3 class="section__title">Accidents Near Your Location</h3>
+          <div class="code__block code__block--notabs">
+            <pre class="code code--block">
+              <code>
+                <span style="color: brown;">syntax</span> ~$  https://taarit-app1.onrender.com/<span style="color: brown; font-family: cursive;font-size: small; ">ambulance_accident/{lat}/{log}/{api}</span>
+              </code>
+            </pre>
+          </div>
+          <div class="code__block code__block--notabs">
+            <pre class="code code--block">
+              <code>
+                <span style="color: brown;">Parametrs</span> ~$  <span style="color: brown; font-family: cursive; font-size: small;"> Latitude , Longitude</span>
+              </code>
+            </pre>
+          </div>
+          <div class="code__block code__block--notabs">
+            <pre class="code code--block">
+              <code>
+fetch("/ambulance_login/lat/log")
+.then((response) => response.json())
+.then((data) => {
+  console.log("Success:", data);
+})
+.catch((error) => {
+  console.error("Error:", error);
+});
+              </code>
+            </pre>
+          </div>
+        </section>
+        <section class="js-section">
+          
+         
+          <h3 class="section__title">Accept Patient(user) </h3>
+          <div class="code__block code__block--notabs">
+            <pre class="code code--block">
+              <code>
+                <span style="color: brown;">syntax</span> ~$  https://taarit-app1.onrender.com/<span style="color: brown; font-family: cursive;font-size: small; ">ambulance_accept/{api}</span>
+              </code>
+            </pre>
+          </div>
+          <div class="code__block code__block--notabs">
+            <pre class="code code--block">
+              <code>
+                <span style="color: brown;">Parametrs</span> ~$  <span style="color: brown; font-family: cursive; font-size: small;"> vehicle_id , email , name</span>
+              </code>
+            </pre>
+          </div>
+          <div class="code__block code__block--notabs">
+            <pre class="code code--block">
+              <code>
+                const data = {
+                  vehicle_id:"user_vehicle_id"
+                  email: "driver_email",
+                  name: "driver_name",
+                };
+
+fetch("/ambulance_accept", {
+method: "POST", // or 'PUT'
+headers: {
+  "Content-Type": "application/json",
+},
+body: JSON.stringify(data),
+})
+.then((response) => response.json())
+.then((data) => {
+  console.log("Success:", data);
+})
+.catch((error) => {
+  console.error("Error:", error);
+});        </code>
+            </pre>
+          </div>
+        </section>
+      </section>
         <!-- <section class="js-section">
           <h3 class="section__title">Keybindings</h3>
           <p>

@@ -126,7 +126,7 @@ def ambulance_acept(api):
             driver_email=request.json["email"]
             driver_name=request.json["name"]
             mycol = mydb["accident"]
-            mycol.update_one({'iot_id':iot_id},{"$set":{'staff_email':driver_email,'staff_name':driver_name}})
+            mycol.update_one({'iot_id':iot_id},{"$set":{'staff_email':driver_email,'staff_name':driver_name,"critical":0}})
             return {"Response":"OK"}
         else:
             return {"Response":"Wrong api"}

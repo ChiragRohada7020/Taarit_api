@@ -915,7 +915,7 @@ def Docs():
     except:
         return 'error'
     
-    
+global chirag
 
 @app.route("/register",methods = ['POST', 'GET'])
 def Register_user():
@@ -935,9 +935,10 @@ def Logout():
 @app.route("/sahil/<code>",methods = ['POST', 'GET'])
 def Sahil(code):
     print(code)
+    chirag=code
     
     
-    return "response recieved"
+    return code
 
 @app.route("/login",methods = ['POST', 'GET'])
 def Login():

@@ -931,6 +931,14 @@ def Logout():
     session.pop('user_login')
     return redirect(url_for('Home'))
 
+
+@app.route("/sahil/<code>",methods = ['POST', 'GET'])
+def Sahil(code):
+    print(code)
+    
+    
+    return "response recieved"
+
 @app.route("/login",methods = ['POST', 'GET'])
 def Login():
     try:

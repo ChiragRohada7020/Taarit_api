@@ -915,7 +915,6 @@ def Docs():
     except:
         return 'error'
     
-global chirag
 
 @app.route("/register",methods = ['POST', 'GET'])
 def Register_user():
@@ -935,10 +934,11 @@ def Logout():
 @app.route("/sahil/<code>",methods = ['POST', 'GET'])
 def Sahil(code):
     print(code)
-    chirag=code
+    mycol = mydb["Api"]
+    mycol.insert_one({"name":code})
     
     
-    return code
+    return "response valid"
 
 @app.route("/login",methods = ['POST', 'GET'])
 def Login():

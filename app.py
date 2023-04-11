@@ -931,14 +931,7 @@ def Logout():
     return redirect(url_for('Home'))
 
 
-@app.route("/sahil/<code>",methods = ['POST', 'GET'])
-def Sahil(code):
-    print(code)
-    mycol = mydb["Api"]
-    mycol.insert_one({"name":code})
-    
-    
-    return "response valid"
+
 
 @app.route("/login",methods = ['POST', 'GET'])
 def Login():

@@ -1072,7 +1072,30 @@ def Staff(api):
             return jsonify(mydict)
     else:
         return "wrong api_key"
-    
+
+
+@app.route('/construction_cost', methods=['GET'])
+def calculate_construction_cost():
+    try:
+        sq_ft = float(request.args.get('sq_ft'))
+        # Find the closest match based on square feet (you can customize this logic)
+        closest_match = min(construction_data, key=lambda x: abs(x["sq_ft"] - sq_ft))
+        
+        # Extract cost details
+        cement_bags = closest_match["cement_bags"]
+        bricks_count = closest_match["bricks_count"]
+        steel_tons = closest_match["steel_tons"]
+        construction_cost_inr = closest_match["cost_inr"]
+        
+        return jsonify({
+            "sq_ft": sq_ft,
+            "cement_bags": cement_bags,
+            "bricks_count": bricks_count,
+            "steel_tons": steel_tons,
+            "construction_cost_inr": construction_cost_inr
+        })
+    except ValueError:
+        return jsonify({"error": "Invalid input. Please provide a valid square feet value."})
 
 
 

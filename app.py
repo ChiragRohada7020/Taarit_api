@@ -1072,7 +1072,11 @@ def Staff(api):
             return jsonify(mydict)
     else:
         return "wrong api_key"
-
+construction_data = [
+    {"sq_ft": 28900, "cement_bags": 578, "bricks_count": 144500, "steel_tons": 57.8, "cost_inr": 4211860},
+    {"sq_ft": 29400, "cement_bags": 588, "bricks_count": 147000, "steel_tons": 58.8, "cost_inr": 4283580},
+    # Add more data here...
+]
 
 @app.route('/construction_cost', methods=['GET'])
 def calculate_construction_cost():

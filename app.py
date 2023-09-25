@@ -1116,7 +1116,398 @@ construction_data = [
     {"sq_ft": 50300, "cement_bags": 1006, "bricks_count": 251500, "steel_tons": 100.6, "cost_inr": 7343125},
     {"sq_ft": 50800, "cement_bags": 1016, "bricks_count": 254000, "steel_tons": 101.6, "cost_inr": 7414840},
     {"sq_ft": 51300, "cement_bags": 1026, "bricks_count": 256500, "steel_tons": 102.6, "cost_inr": 7486565},
-    # Add more data here...
+      {
+        "sq_ft": 1000,
+        "cement_bags": 20,
+        "bricks_count": 5000,
+        "steel_tons": 2,
+        "cost_inr": 138700
+    },
+    {
+        "sq_ft": 1500,
+        "cement_bags": 30,
+        "bricks_count": 7500,
+        "steel_tons": 3,
+        "cost_inr": 208050
+    },
+    {
+        "sq_ft": 2000,
+        "cement_bags": 40,
+        "bricks_count": 10000,
+        "steel_tons": 4,
+        "cost_inr": 277400
+    },
+    {
+        "sq_ft": 2500,
+        "cement_bags": 50,
+        "bricks_count": 12500,
+        "steel_tons": 5,
+        "cost_inr": 346750
+    },
+    {
+        "sq_ft": 3000,
+        "cement_bags": 60,
+        "bricks_count": 15000,
+        "steel_tons": 6,
+        "cost_inr": 416100
+    },
+    {
+        "sq_ft": 1200,
+        "cement_bags": 24,
+        "bricks_count": 6000,
+        "steel_tons": 2.4,
+        "cost_inr": 166440
+    },
+    {
+        "sq_ft": 1800,
+        "cement_bags": 36,
+        "bricks_count": 9000,
+        "steel_tons": 3.6,
+        "cost_inr": 249660
+    },
+    {
+        "sq_ft": 2200,
+        "cement_bags": 44,
+        "bricks_count": 11000,
+        "steel_tons": 4.4,
+        "cost_inr": 323780
+    },
+    {
+        "sq_ft": 2700,
+        "cement_bags": 54,
+        "bricks_count": 13500,
+        "steel_tons": 5.4,
+        "cost_inr": 416550
+    },
+    {
+        "sq_ft": 3500,
+        "cement_bags": 70,
+        "bricks_count": 17500,
+        "steel_tons": 7,
+        "cost_inr": 508770
+    },
+    {
+        "sq_ft": 1400,
+        "cement_bags": 28,
+        "bricks_count": 7000,
+        "steel_tons": 2.8,
+        "cost_inr": 193580
+    },
+    {
+        "sq_ft": 1600,
+        "cement_bags": 32,
+        "bricks_count": 8000,
+        "steel_tons": 3.2,
+        "cost_inr": 221200
+    },
+    {
+        "sq_ft": 2100,
+        "cement_bags": 42,
+        "bricks_count": 10500,
+        "steel_tons": 4.2,
+        "cost_inr": 290100
+    },
+    {
+        "sq_ft": 2600,
+        "cement_bags": 52,
+        "bricks_count": 13000,
+        "steel_tons": 5.2,
+        "cost_inr": 358700
+    },
+    {
+        "sq_ft": 3200,
+        "cement_bags": 64,
+        "bricks_count": 16000,
+        "steel_tons": 6.4,
+        "cost_inr": 443680
+    },
+    {
+        "sq_ft": 1700,
+        "cement_bags": 34,
+        "bricks_count": 8500,
+        "steel_tons": 3.4,
+        "cost_inr": 234920
+    },
+    {
+        "sq_ft": 1900,
+        "cement_bags": 38,
+        "bricks_count": 9500,
+        "steel_tons": 3.8,
+        "cost_inr": 262540
+    },
+    {
+        "sq_ft": 2300,
+        "cement_bags": 46,
+        "bricks_count": 11500,
+        "steel_tons": 4.6,
+        "cost_inr": 318590
+    },
+    {
+        "sq_ft": 2800,
+        "cement_bags": 56,
+        "bricks_count": 14000,
+        "steel_tons": 5.6,
+        "cost_inr": 386900
+    },
+    {
+        "sq_ft": 3600,
+        "cement_bags": 72,
+        "bricks_count": 18000,
+        "steel_tons": 7.2,
+        "cost_inr": 498360
+    },
+    {
+        "sq_ft": 1300,
+        "cement_bags": 26,
+        "bricks_count": 6500,
+        "steel_tons": 2.6,
+        "cost_inr": 179710
+    },
+    {
+        "sq_ft": 2400,
+        "cement_bags": 48,
+        "bricks_count": 12000,
+        "steel_tons": 4.8,
+        "cost_inr": 332880
+    },
+    {
+        "sq_ft": 2900,
+        "cement_bags": 58,
+        "bricks_count": 14500,
+        "steel_tons": 5.8,
+        "cost_inr": 400350
+    },
+    {
+        "sq_ft": 3800,
+        "cement_bags": 76,
+        "bricks_count": 19000,
+        "steel_tons": 7.6,
+        "cost_inr": 523400
+    },
+    {
+        "sq_ft": 3100,
+        "cement_bags": 62,
+        "bricks_count": 15500,
+        "steel_tons": 6.2,
+        "cost_inr": 426950
+    },
+    {
+        "sq_ft": 3300,
+        "cement_bags": 66,
+        "bricks_count": 16500,
+        "steel_tons": 6.6,
+        "cost_inr": 455575
+    },
+    {
+        "sq_ft": 3700,
+        "cement_bags": 74,
+        "bricks_count": 18500,
+        "steel_tons": 7.4,
+        "cost_inr": 509450
+    },
+    {
+        "sq_ft": 4000,
+        "cement_bags": 80,
+        "bricks_count": 20000,
+        "steel_tons": 8,
+        "cost_inr": 554600
+    },
+    {
+        "sq_ft": 1000,
+        "cement_bags": 20,
+        "bricks_count": 5000,
+        "steel_tons": 2,
+        "cost_inr": 138700
+    },
+    {
+        "sq_ft": 1500,
+        "cement_bags": 30,
+        "bricks_count": 7500,
+        "steel_tons": 3,
+        "cost_inr": 208050
+    },
+    {
+        "sq_ft": 2000,
+        "cement_bags": 40,
+        "bricks_count": 10000,
+        "steel_tons": 4,
+        "cost_inr": 277400
+    },
+    {
+        "sq_ft": 2500,
+        "cement_bags": 50,
+        "bricks_count": 12500,
+        "steel_tons": 5,
+        "cost_inr": 346750
+    },
+    {
+        "sq_ft": 3000,
+        "cement_bags": 60,
+        "bricks_count": 15000,
+        "steel_tons": 6,
+        "cost_inr": 416100
+    },
+    {
+        "sq_ft": 1200,
+        "cement_bags": 24,
+        "bricks_count": 6000,
+        "steel_tons": 2.4,
+        "cost_inr": 166440
+    },
+    {
+        "sq_ft": 1800,
+        "cement_bags": 36,
+        "bricks_count": 9000,
+        "steel_tons": 3.6,
+        "cost_inr": 249660
+    },
+    {
+        "sq_ft": 2200,
+        "cement_bags": 44,
+        "bricks_count": 11000,
+        "steel_tons": 4.4,
+        "cost_inr": 323780
+    },
+    {
+        "sq_ft": 2700,
+        "cement_bags": 54,
+        "bricks_count": 13500,
+        "steel_tons": 5.4,
+        "cost_inr": 416550
+    },
+    {
+        "sq_ft": 3500,
+        "cement_bags": 70,
+        "bricks_count": 17500,
+        "steel_tons": 7,
+        "cost_inr": 508770
+    },
+    {
+        "sq_ft": 1400,
+        "cement_bags": 28,
+        "bricks_count": 7000,
+        "steel_tons": 2.8,
+        "cost_inr": 193580
+    },
+    {
+        "sq_ft": 1600,
+        "cement_bags": 32,
+        "bricks_count": 8000,
+        "steel_tons": 3.2,
+        "cost_inr": 221200
+    },
+    {
+        "sq_ft": 2100,
+        "cement_bags": 42,
+        "bricks_count": 10500,
+        "steel_tons": 4.2,
+        "cost_inr": 290100
+    },
+    {
+        "sq_ft": 2600,
+        "cement_bags": 52,
+        "bricks_count": 13000,
+        "steel_tons": 5.2,
+        "cost_inr": 358700
+    },
+    {
+        "sq_ft": 3200,
+        "cement_bags": 64,
+        "bricks_count": 16000,
+        "steel_tons": 6.4,
+        "cost_inr": 443680
+    },
+    {
+        "sq_ft": 1700,
+        "cement_bags": 34,
+        "bricks_count": 8500,
+        "steel_tons": 3.4,
+        "cost_inr": 234920
+    },
+    {
+        "sq_ft": 1900,
+        "cement_bags": 38,
+        "bricks_count": 9500,
+        "steel_tons": 3.8,
+        "cost_inr": 262540
+    },
+    {
+        "sq_ft": 2300,
+        "cement_bags": 46,
+        "bricks_count": 11500,
+        "steel_tons": 4.6,
+        "cost_inr": 318590
+    },
+    {
+        "sq_ft": 2800,
+        "cement_bags": 56,
+        "bricks_count": 14000,
+        "steel_tons": 5.6,
+        "cost_inr": 386900
+    },
+    {
+        "sq_ft": 3600,
+        "cement_bags": 72,
+        "bricks_count": 18000,
+        "steel_tons": 7.2,
+        "cost_inr": 498360
+    },
+    {
+        "sq_ft": 1300,
+        "cement_bags": 26,
+        "bricks_count": 6500,
+        "steel_tons": 2.6,
+        "cost_inr": 179710
+    },
+    {
+        "sq_ft": 2400,
+        "cement_bags": 48,
+        "bricks_count": 12000,
+        "steel_tons": 4.8,
+        "cost_inr": 332880
+    },
+    {
+        "sq_ft": 2900,
+        "cement_bags": 58,
+        "bricks_count": 14500,
+        "steel_tons": 5.8,
+        "cost_inr": 400350
+    },
+    {
+        "sq_ft": 3800,
+        "cement_bags": 76,
+        "bricks_count": 19000,
+        "steel_tons": 7.6,
+        "cost_inr": 523400
+    },
+    {
+        "sq_ft": 3100,
+        "cement_bags": 62,
+        "bricks_count": 15500,
+        "steel_tons": 6.2,
+        "cost_inr": 426950
+    },
+    {
+        "sq_ft": 3300,
+        "cement_bags": 66,
+        "bricks_count": 16500,
+        "steel_tons": 6.6,
+        "cost_inr": 455575
+    },
+    {
+        "sq_ft": 3700,
+        "cement_bags": 74,
+        "bricks_count": 18500,
+        "steel_tons": 7.4,
+        "cost_inr": 509450
+    },
+    {
+        "sq_ft": 4000,
+        "cement_bags": 80,
+        "bricks_count": 20000,
+        "steel_tons": 8,
+        "cost_inr": 554600
+    }
 ]
 
 
